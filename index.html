@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#15324f">
+<meta name="description" content="Control local de clientes, oportunidades y fechas de seguimiento.">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./assets/icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CONTROL CLIENTES">
+<title>CONTROL CLIENTES</title>
+<style>
+:root{--navy:#15324f;--blue:#2463eb;--cyan:#dff3ff;--bg:#f3f6fa;--card:#fff;--text:#182230;--muted:#667085;--border:#e2e8f0;--green:#16845b;--amber:#b66b00;--red:#c0392b;--shadow:0 8px 24px rgba(15,35,60,.07)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{max-width:1120px;margin:auto;min-height:100vh}.top{background:linear-gradient(120deg,#15324f,#1e4f78);color:#fff;padding:22px 18px 20px}.toprow{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;align-items:center;gap:12px}.logo{width:46px;height:46px;border-radius:14px;background:#2d5c82;display:grid;place-items:center;font-size:23px}.brand h1{font-size:22px;margin:0;letter-spacing:-.5px}.brand p{margin:2px 0 0;color:#d4e6f5;font-size:13px}.tag{font-size:11px;border:1px solid #7aa4c4;border-radius:99px;padding:5px 8px;white-space:nowrap}.topcopy{margin:20px 0 0;color:#e6f2fc;max-width:620px}.main{padding:18px;display:grid;gap:16px}.toolbar{display:flex;gap:10px;flex-wrap:wrap}.btn{border:0;border-radius:11px;padding:11px 14px;font-weight:650;display:inline-flex;align-items:center;justify-content:center;gap:7px}.primary{background:var(--blue);color:white}.light{background:white;color:var(--navy);border:1px solid var(--border)}.danger{background:#fff1f0;color:var(--red);border:1px solid #ffd7d2}.small{padding:7px 10px;font-size:13px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.stat,.panel,.client{background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow)}.stat{padding:16px}.stat .label{color:var(--muted);font-size:12px}.stat .num{font-size:28px;font-weight:750;letter-spacing:-1px;margin:6px 0 2px}.stat .hint{color:var(--muted);font-size:12px}.panel{padding:18px}.panel h2{margin:0 0 14px;font-size:18px;letter-spacing:-.3px}.field{display:grid;gap:6px}.field label{font-size:12px;color:#475467;font-weight:700}.field input,.field select,.field textarea,.search{width:100%;border:1px solid #d5dde7;border-radius:10px;padding:11px 12px;background:#fff;color:var(--text);outline:none}.field input:focus,.field select:focus,.field textarea:focus,.search:focus{border-color:#74a3ff;box-shadow:0 0 0 3px #e6efff}.field textarea{resize:vertical;min-height:78px}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.span2{grid-column:1/-1}.formactions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.hidden{display:none!important}.listhead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}.listhead h2{margin:0}.filters{display:grid;grid-template-columns:1.6fr 1fr;gap:10px;margin-bottom:14px}.cards{display:grid;gap:10px}.client{padding:15px;box-shadow:none}.clienttop{display:flex;align-items:flex-start;gap:12px}.avatar{width:42px;height:42px;flex:0 0 42px;border-radius:13px;background:#e6f2ff;color:#1b5e9a;display:grid;place-items:center;font-weight:800}.clientmain{flex:1;min-width:0}.clientname{font-weight:750;font-size:16px;overflow-wrap:anywhere}.sub{font-size:13px;color:var(--muted);margin-top:2px;overflow-wrap:anywhere}.pill{display:inline-flex;padding:5px 9px;border-radius:99px;font-size:11px;font-weight:750;background:#edf2f7;color:#475467;white-space:nowrap}.pill.pendiente,.pill.nuevo{background:#eaf2ff;color:#2456a6}.pill.cotización-enviada,.pill.seguimiento{background:#fff2d8;color:#925900}.pill.vendido{background:#ddf7e9;color:#087344}.pill.perdido{background:#ffe5e2;color:#a52a20}.clientmeta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:13px 0}.meta{background:#f7f9fc;border-radius:10px;padding:9px 10px;min-width:0}.meta small{display:block;color:var(--muted);font-size:11px}.meta strong{display:block;font-size:13px;margin-top:3px;overflow-wrap:anywhere}.overdue{color:var(--red)!important}.clientnote{font-size:13px;color:#475467;background:#fafbfc;border-left:3px solid #b6c8da;padding:8px 10px;border-radius:0 8px 8px 0;margin-bottom:12px;white-space:pre-wrap;overflow-wrap:anywhere}.clientactions{display:flex;gap:7px;flex-wrap:wrap}.empty{text-align:center;padding:34px 16px;color:var(--muted)}.empty strong{display:block;color:var(--text);margin:8px 0}.notice{padding:11px 13px;border-radius:10px;background:#e6f7ed;color:#11633d;font-size:13px}.notice.error{background:#fff0ee;color:#a52a20}.foot{font-size:12px;color:var(--muted);text-align:center;padding:0 18px 24px}.modalback{position:fixed;inset:0;background:#071a2bb3;display:flex;align-items:flex-end;justify-content:center;padding:0;z-index:10}.modal{width:min(760px,100%);max-height:94vh;overflow:auto;background:var(--bg);border-radius:20px 20px 0 0;padding:20px}.modalhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.modalhead h2{margin:0}.close{border:0;background:#e7edf4;border-radius:10px;padding:8px 11px;font-size:18px}.noticebar{display:none}.reminderlist{display:grid;gap:8px}.reminderitem{padding:10px 12px;background:#fff7e8;border:1px solid #ffe2a9;border-radius:10px;font-size:13px}.settingsgrid{display:flex;gap:8px;flex-wrap:wrap}.footnote{font-size:12px;color:var(--muted);margin:10px 0 0}
+@media(min-width:760px){.main{padding:24px}.top{padding:26px 24px}.modalback{align-items:center;padding:20px}.modal{border-radius:20px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.client{align-self:start}}
+@media(max-width:620px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat{padding:13px}.stat .num{font-size:25px}.formgrid{grid-template-columns:1fr}.span2{grid-column:auto}.filters{grid-template-columns:1fr}.toprow{align-items:flex-start}.brand h1{font-size:20px}.tag{font-size:10px}.main{padding:13px}.panel{padding:14px}.toolbar .btn{flex:1}.clientmeta{grid-template-columns:1fr 1fr}}
+
+.branding-logos{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin:0 auto 18px}
+.branding-logos img{display:block;width:auto;height:76px;max-width:44%;object-fit:contain;background:#fff;border-radius:8px;padding:4px}
+.branding-title{font-size:clamp(24px,4vw,34px);font-weight:800;letter-spacing:.04em;margin:0 0 8px}
+@media(max-width:520px){.branding-logos{gap:10px}.branding-logos img{height:56px}.branding-title{font-size:24px}}
+
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="toprow">
+      <div class="brand"><div><div class="branding-logos"><img src="./assets/hometech.png" alt="Logo Hometech"><img src="./assets/teknovida.png" alt="Logo Teknovida"></div><h1 class="branding-title">CONTROL CLIENTES</h1><p>Seguimiento de clientes y ventas</p></div></div>
+      <span class="tag">VERSIÓN FINAL 1.1</span>
+    </div>
+    <p class="topcopy">Organiza tus oportunidades, recuerda a quién contactar y convierte conversaciones en ventas.</p>
+  </header>
+  <main class="main">
+    <div id="notice" class="notice hidden" role="status"></div>
+    <div class="toolbar">
+      <button class="btn primary" id="newBtn">＋ Registrar cliente</button>
+      <button class="btn light" id="installBtn" type="button">＋ Instalar aplicación</button>
+      <button class="btn light" id="exportBtn">⇩ Exportar respaldo</button>
+      <button class="btn light" id="importBtn">⇧ Importar respaldo</button>
+      <input type="file" id="importFile" accept=".json,application/json" class="hidden">
+    </div>
+    <section class="stats" aria-label="Resumen">
+      <div class="stat"><div class="label">Clientes registrados</div><div class="num" id="totalStat">0</div><div class="hint">Toda tu cartera</div></div>
+      <div class="stat"><div class="label">Ventas por gestionar</div><div class="num" id="pendingStat">0</div><div class="hint">Oportunidades abiertas</div></div>
+      <div class="stat"><div class="label">Alertas activas</div><div class="num" id="dueStat">0</div><div class="hint">Fechas y estados pendientes</div></div>
+      <div class="stat"><div class="label">Ventas concretadas</div><div class="num" id="wonStat">0</div><div class="hint">Oportunidades ganadas</div></div>
+    </section>
+    <section class="panel">
+      <div class="listhead"><h2>Seguimientos prioritarios</h2><button class="btn light small" id="notifyBtn">Activar avisos</button></div>
+      <div id="reminders" class="reminderlist"><div class="sub">No hay seguimientos pendientes.</div></div>
+      <p class="footnote">Se alertará por seguimientos atrasados, de hoy, próximos 3 días y oportunidades abiertas sin fecha. Las alertas se revisan al abrir la app y mientras permanece activa. La instalación no garantiza avisos programados si el sistema suspende o cierra la app; para avisos fiables con la app cerrada se requiere una app nativa con alarmas locales o un servicio push.</p>
+    </section>
+    <section class="panel">
+      <div class="listhead"><h2>Clientes y oportunidades</h2><span class="sub" id="resultCount">0 registros</span></div>
+      <div class="filters">
+        <input class="search" id="search" placeholder="Buscar cliente, teléfono o producto…" aria-label="Buscar clientes">
+        <select id="filter" aria-label="Filtrar por estado" class="search">
+          <option value="">Todos los estados</option><option>Nuevo</option><option>Pendiente</option><option>Cotización enviada</option><option>Seguimiento</option><option>Vendido</option><option>Perdido</option>
+        </select>
+      </div>
+      <div id="clients" class="cards"></div>
+    </section>
+    <section class="panel">
+      <h2>Datos y privacidad</h2>
+      <div class="settingsgrid">
+        <button class="btn light small" id="csvBtn">Exportar CSV</button>
+        <button class="btn light small" id="clearDemoBtn">Vaciar cartera</button>
+        <button class="btn danger small" id="deleteAllBtn">Borrar todos los datos</button>
+      </div>
+      <p class="footnote">Los registros se guardan en este navegador y dispositivo. Exporta respaldos periódicamente. No se envían a un servidor en esta versión.</p>
+    </section>
+  </main>
+  <footer class="foot">CONTROL CLIENTES Final 1.1 · Aplicación local · Tus datos permanecen en este navegador</footer>
+</div>
+
+<div class="modalback hidden" id="modalBack" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <div class="modalhead"><h2 id="modalTitle">Registrar cliente</h2><button class="close" id="closeModal" aria-label="Cerrar">×</button></div>
+    <form id="clientForm">
+      <input type="hidden" id="clientId">
+      <div class="formgrid">
+        <div class="field"><label for="fName">Nombre del cliente *</label><input id="fName" required maxlength="120" placeholder="Nombre completo"></div>
+        <div class="field"><label for="fPhone">Teléfono / WhatsApp</label><input id="fPhone" maxlength="60" placeholder="+502 …"></div>
+        <div class="field"><label for="fProduct">Producto o servicio *</label><input id="fProduct" required maxlength="160" placeholder="¿Qué desea comprar?"></div>
+        <div class="field"><label for="fStatus">Estado</label><select id="fStatus"><option>Nuevo</option><option>Pendiente</option><option>Cotización enviada</option><option>Seguimiento</option><option>Vendido</option><option>Perdido</option></select></div>
+        <div class="field"><label for="fDate">Próximo seguimiento</label><input id="fDate" type="date"></div>
+        <div class="field"><label for="fValue">Valor estimado (opcional)</label><input id="fValue" type="number" min="0" step="0.01" placeholder="0.00"></div>
+        <div class="field span2"><label for="fNotes">Notas / próximo paso</label><textarea id="fNotes" maxlength="3000" placeholder="Ej.: enviar cotización, llamar el viernes, confirmar existencia…"></textarea></div>
+      </div>
+      <div class="formactions"><button class="btn primary" type="submit">Guardar cliente</button><button class="btn light" type="button" id="cancelForm">Cancelar</button></div>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+'use strict';
+const KEY='clienteflow_v1_records';
+const DEMO_KEY='clienteflow_v1_demo_loaded';
+const ALERT_KEY='clienteflow_v1_alert_signature';
+const ALERT_WINDOW_DAYS=3;
+const statuses=['Nuevo','Pendiente','Cotización enviada','Seguimiento','Vendido','Perdido'];
+const $=id=>document.getElementById(id);
+let records=[];
+let notificationPermission='default';
+const today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+const dateLabel=s=>{if(!s)return 'Sin fecha';const d=new Date(s+'T12:00:00');return d.toLocaleDateString('es',{year:'numeric',month:'short',day:'numeric'})};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const slug=s=>s.toLowerCase().replaceAll(' ','-').replaceAll('ó','o').replaceAll('í','i');
+const openStatus=r=>!['Vendido','Perdido'].includes(r.status);
+function showNotice(msg,error=false){$('notice').textContent=msg;$('notice').classList.toggle('hidden',!msg);$('notice').classList.toggle('error',error);if(msg)window.scrollTo({top:0,behavior:'smooth'});}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(records));return true}catch(e){showNotice('No se pudieron guardar los datos. Exporta un respaldo y libera espacio del navegador.',true);return false}}
+function cryptoId(){return (window.crypto&&crypto.randomUUID)?crypto.randomUUID():String(Date.now())+Math.random().toString(16).slice(2)}
+function load(){try{const raw=localStorage.getItem(KEY);if(raw!==null){const parsed=JSON.parse(raw);if(Array.isArray(parsed))records=parsed.filter(validRecord);else throw Error('invalid');if(localStorage.getItem(DEMO_KEY)==='yes'){const demoPhones=['5555-1234','5555-6789','5555-2468'];records=records.filter(r=>!(demoPhones.includes(r.phone)&&['María López','Carlos Pérez','Ana Morales'].includes(r.name)));localStorage.setItem(KEY,JSON.stringify(records));localStorage.removeItem(DEMO_KEY)}}else{records=[];localStorage.setItem(KEY,'[]')}}catch(e){records=[];showNotice('No se pudieron leer los datos guardados. Puedes importar un respaldo JSON.',true)}render()}
+function validRecord(r){return r&&typeof r==='object'&&typeof r.name==='string'&&typeof r.product==='string'&&statuses.includes(r.status)}
+function dayDiff(date){if(!date)return null;const a=new Date(today()+'T12:00:00'),b=new Date(date+'T12:00:00');return Math.round((b-a)/86400000)}
+function alertItems(){return records.filter(r=>{if(!openStatus(r))return false;if(!r.date)return true;return dayDiff(r.date)<=ALERT_WINDOW_DAYS}).sort((a,b)=>{const da=a.date?dayDiff(a.date):9999,db=b.date?dayDiff(b.date):9999;return da-db||statuses.indexOf(a.status)-statuses.indexOf(b.status)})}
+function dueRecords(){return records.filter(r=>openStatus(r)&&r.date&&dayDiff(r.date)<=0).sort((a,b)=>a.date.localeCompare(b.date))}
+function alertLabel(r){if(!r.date)return 'Sin fecha · '+r.status;const d=dayDiff(r.date);if(d<0)return `Atrasado ${Math.abs(d)} día(s) · ${dateLabel(r.date)}`;if(d===0)return `Para hoy · ${dateLabel(r.date)}`;return `En ${d} día(s) · ${dateLabel(r.date)}`}
+function alertSignature(items){return items.map(r=>`${r.id}:${r.status}:${r.date||'sin-fecha'}`).sort().join('|')}
+function notifyAlerts(force=false){if(!('Notification'in window)||Notification.permission!=='granted')return;const items=alertItems();if(!items.length)return;const sig=today()+'::'+alertSignature(items);try{if(force||localStorage.getItem(ALERT_KEY)!==sig){new Notification('CONTROL CLIENTES: seguimiento pendiente',{body:`${items.length} oportunidad(es) requieren atención. Revisa las alertas dentro de la app.`,tag:'clienteflow-alerts'});localStorage.setItem(ALERT_KEY,sig)}}catch(e){/* el panel interno sigue disponible */}}
+function render(){
+ const open=records.filter(openStatus),won=records.filter(r=>r.status==='Vendido'),due=dueRecords(),alerts=alertItems();
+ $('totalStat').textContent=records.length;$('pendingStat').textContent=open.length;$('dueStat').textContent=alerts.length;$('wonStat').textContent=won.length;
+ const rem=$('reminders');
+ if(!alerts.length)rem.innerHTML='<div class="sub">No hay alertas activas. ¡Buen trabajo!</div>';
+ else rem.innerHTML=alerts.slice(0,10).map(r=>{const urgent=r.date&&dayDiff(r.date)<0;return `<div class="reminderitem" style="${urgent?'background:#fff0ee;border-color:#ffd7d2':''}"><strong>${esc(r.name)}</strong> · ${esc(r.product)}<br><span>${esc(alertLabel(r))}</span><div style="margin-top:4px;color:#475467">Estado: ${esc(r.status)}${r.notes?' · '+esc(r.notes.slice(0,140)):''}</div><div style="margin-top:7px"><button class="btn light small" data-edit="${esc(r.id)}">Abrir registro</button></div></div>`}).join('');
+ const query=$('search').value.trim().toLocaleLowerCase('es'),filter=$('filter').value;
+ const list=records.filter(r=>(!filter||r.status===filter)&&[r.name,r.phone,r.product,r.notes].join(' ').toLocaleLowerCase('es').includes(query)).sort((a,b)=>{
+ const ad=openStatus(a)&&a.date&&a.date<=today()?0:1,bd=openStatus(b)&&b.date&&b.date<=today()?0:1;
+ return ad-bd||(a.date||'9999').localeCompare(b.date||'9999');
+ });
+ $('resultCount').textContent=`${list.length} ${list.length===1?'registro':'registros'}`;
+ if(!list.length){$('clients').innerHTML='<div class="empty"><div style="font-size:28px">⌕</div><strong>No se encontraron clientes</strong>Prueba otra búsqueda o registra un cliente nuevo.</div>';return}
+ $('clients').innerHTML=list.map(r=>{
+ const overdue=openStatus(r)&&r.date&&r.date<today(),isDue=openStatus(r)&&r.date===today();
+ const val=r.value!==''&&r.value!=null?`<div class="meta"><small>Valor estimado</small><strong>${Number(r.value).toLocaleString('es',{minimumFractionDigits:2,maximumFractionDigits:2})}</strong></div>`:'';
+ return `<article class="client">
+ <div class="clienttop"><div class="avatar">${esc((r.name||'?').trim().charAt(0).toUpperCase())}</div><div class="clientmain"><div class="clientname">${esc(r.name)}</div><div class="sub">${esc(r.product)}${r.phone?' · '+esc(r.phone):''}</div></div><span class="pill ${slug(r.status)}">${esc(r.status)}</span></div>
+ <div class="clientmeta"><div class="meta"><small>Próximo seguimiento</small><strong class="${overdue?'overdue':''}">${dateLabel(r.date)}${overdue?' · Atrasado':isDue?' · Hoy':''}</strong></div>${val||'<div class="meta"><small>Creado</small><strong>'+esc(r.createdAt?new Date(r.createdAt).toLocaleDateString('es'):'—')+'</strong></div>'}</div>
+ ${r.notes?`<div class="clientnote">${esc(r.notes)}</div>`:''}
+ <div class="clientactions"><button class="btn light small" data-edit="${esc(r.id)}">✎ Editar</button><button class="btn light small" data-status="${esc(r.id)}">Cambiar estado</button>${r.phone?`<button class="btn light small" data-copy="${esc(r.id)}">Copiar teléfono</button>`:''}<button class="btn danger small" data-delete="${esc(r.id)}">Eliminar</button></div>
+ </article>`;
+ }).join('');
+}
+function showModal(r){$('clientForm').reset();$('clientId').value=r?.id||'';$('modalTitle').textContent=r?'Editar cliente':'Registrar cliente';$('fName').value=r?.name||'';$('fPhone').value=r?.phone||'';$('fProduct').value=r?.product||'';$('fStatus').value=r?.status||'Nuevo';$('fDate').value=r?.date||'';$('fValue').value=r?.value??'';$('fNotes').value=r?.notes||'';$('modalBack').classList.remove('hidden');setTimeout(()=>$('fName').focus(),40)}
+function closeModal(){$('modalBack').classList.add('hidden')}
+$('newBtn').addEventListener('click',()=>showModal());
+$('closeModal').addEventListener('click',closeModal);$('cancelForm').addEventListener('click',closeModal);
+$('modalBack').addEventListener('click',e=>{if(e.target===$('modalBack'))closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+$('clientForm').addEventListener('submit',e=>{
+ e.preventDefault();const id=$('clientId').value;
+ const existing=records.find(r=>r.id===id);
+ const r={id:id||cryptoId(),name:$('fName').value.trim(),phone:$('fPhone').value.trim(),product:$('fProduct').value.trim(),status:$('fStatus').value,date:$('fDate').value,value:$('fValue').value,notes:$('fNotes').value.trim(),createdAt:existing?.createdAt||new Date().toISOString(),updatedAt:new Date().toISOString()};
+ if(!r.name||!r.product)return;
+ if(existing)records=records.map(x=>x.id===id?r:x);else records.unshift(r);
+ save();closeModal();render();showNotice(existing?'Cliente actualizado.':'Cliente registrado.');
+});
+$('search').addEventListener('input',render);$('filter').addEventListener('change',render);
+$('clients').addEventListener('click',async e=>{
+ const b=e.target.closest('button');if(!b)return;
+ if(b.dataset.edit){const r=records.find(x=>x.id===b.dataset.edit);if(r)showModal(r)}
+ if(b.dataset.status){const r=records.find(x=>x.id===b.dataset.status);if(!r)return;const next=(statuses.indexOf(r.status)+1)%statuses.length;r.status=statuses[next];r.updatedAt=new Date().toISOString();save();render();showNotice('Estado actualizado a: '+r.status)}
+ if(b.dataset.delete){const r=records.find(x=>x.id===b.dataset.delete);if(r&&confirm(`¿Eliminar el registro de ${r.name}? Esta acción no se puede deshacer.`)){records=records.filter(x=>x.id!==r.id);save();render();showNotice('Registro eliminado.')}}
+ if(b.dataset.copy){const r=records.find(x=>x.id===b.dataset.copy);if(r){try{await navigator.clipboard.writeText(r.phone);showNotice('Teléfono copiado.')}catch(e){showNotice('No se pudo copiar automáticamente. Teléfono: '+r.phone,true)}}}
+});
+$('reminders').addEventListener('click',e=>{const b=e.target.closest('[data-edit]');if(b){const r=records.find(x=>x.id===b.dataset.edit);if(r)showModal(r)}});
+function download(content,type,filename){const blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+$('exportBtn').addEventListener('click',()=>{download(JSON.stringify({app:'CONTROL CLIENTES',version:'1.1',exportedAt:new Date().toISOString(),records},null,2),'application/json','clienteflow-respaldo-'+today()+'.json');showNotice('Respaldo JSON exportado.')});
+$('importBtn').addEventListener('click',()=>$('importFile').click());
+$('importFile').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{const obj=JSON.parse(await file.text()),arr=Array.isArray(obj)?obj:obj.records;if(!Array.isArray(arr)||!arr.every(validRecord))throw Error('Formato inválido');if(!confirm(`Se importarán ${arr.length} registros y reemplazarán los actuales. Exporta un respaldo primero si lo necesitas. ¿Continuar?`))return;records=arr.map(r=>({...r,id:r.id||cryptoId()}));save();render();showNotice('Respaldo importado correctamente.')}catch(err){showNotice('No se pudo importar. Selecciona un respaldo JSON válido de CONTROL CLIENTES.',true)}finally{$('importFile').value=''}});
+$('csvBtn').addEventListener('click',()=>{const headers=['Nombre','Telefono','Producto o servicio','Estado','Fecha seguimiento','Valor estimado','Notas','Creado'];const rows=records.map(r=>[r.name,r.phone,r.product,r.status,r.date,r.value,r.notes,r.createdAt]);const csv=[headers,...rows].map(row=>row.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');download('\ufeff'+csv,'text/csv;charset=utf-8','clienteflow-clientes-'+today()+'.csv');showNotice('Archivo CSV exportado.')});
+$('clearDemoBtn').addEventListener('click',()=>{if(!confirm('¿Vaciar toda la cartera guardada en este navegador? Esta acción eliminará todos los clientes. Exporta un respaldo antes si deseas conservarlos.'))return;records=[];save();render();showNotice('Cartera vacía. Ya puedes empezar a registrar tus clientes.')});
+$('deleteAllBtn').addEventListener('click',()=>{if(!confirm('¿Borrar TODOS los clientes guardados en este navegador? Esta acción no se puede deshacer.'))return;records=[];save();render();showNotice('Todos los registros fueron eliminados.')});
+$('notifyBtn').addEventListener('click',async()=>{
+ if(!('Notification'in window)){showNotice('Este navegador no admite notificaciones web. Las alertas dentro de CONTROL CLIENTES seguirán funcionando.',true);return}
+ try{notificationPermission=await Notification.requestPermission();if(notificationPermission==='granted'){showNotice('Avisos activados. CONTROL CLIENTES revisará fechas y estados mientras esté abierto.');notifyAlerts(true)}else showNotice('No se concedió permiso. Las alertas dentro de la app seguirán funcionando.',true)}catch(e){showNotice('No se pudieron activar las notificaciones en este navegador. Revisa el panel de alertas.',true)}
+});
+
+// Instalación como PWA (requiere HTTPS y que el sitio esté publicado).
+let deferredInstallPrompt=null;
+const installBtn=$('installBtn');
+if(installBtn){
+  installBtn.addEventListener('click',async()=>{
+    if(deferredInstallPrompt){
+      deferredInstallPrompt.prompt();
+      await deferredInstallPrompt.userChoice;
+      deferredInstallPrompt=null;
+      installBtn.classList.add('hidden');
+    }else{
+      showNotice('Para instalar: publica esta carpeta en un sitio HTTPS. En Android, abre la dirección en Chrome y elige “Instalar aplicación” o “Añadir a pantalla de inicio”. En iPhone, abre en Safari y elige Compartir > Añadir a pantalla de inicio.');
+    }
+  });
+}
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault();deferredInstallPrompt=e;
+  if(installBtn)installBtn.classList.remove('hidden');
+});
+window.addEventListener('appinstalled',()=>{
+  if(installBtn)installBtn.classList.add('hidden');
+  showNotice('CONTROL CLIENTES quedó instalado en este dispositivo.');
+});
+if('serviceWorker' in navigator && location.protocol.startsWith('http')){
+  window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+}
+
+load();
+notifyAlerts();
+window.addEventListener('focus',()=>{render();notifyAlerts()});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden){render();notifyAlerts()}});
+window.setInterval(()=>{if(!document.hidden){render();notifyAlerts()}},5*60*1000);
+})();
+</script>
+</body>
+</html>
